@@ -3,14 +3,22 @@ import { useLobby } from "@huddle01/react/dist/declarations/src/hooks";
 import React, { useEffect, useState } from "react";
 import { useCreateRoom } from "../hooks/useCreateRoom";
 import { useAccount } from "wagmi";
-// import { Button, Col, Container, Row } from "react-bootstrap";
-import { Button, Card, Col, Form, Input, Row, Space, message } from "antd";
+import {
+  Button,
+  Card,
+  Col,
+  Form,
+  Input,
+  Row,
+  Space,
+  message
+} from "antd";
 import { useRouter } from "next/router";
 import { useGetRoomDetail } from "../hooks/useGetRoomDetail";
 import { Video } from "@huddle01/react/components";
 import { useNFTStorage } from "../providers/NFTStorageProvider";
 
-const index = () => {
+const Index = () => {
   const router = useRouter();
   const { address } = useAccount();
   const [messageApi, contextHolder] = message.useMessage();
@@ -45,7 +53,6 @@ const index = () => {
                 title="Create room"
                 extra={
                   <Button
-                    // TODO: Pass description and title
                     onClick={() => handleCreate()}
                     disabled={createRoomIsLoading}
                   >
@@ -55,10 +62,10 @@ const index = () => {
               >
                 <Form layout="vertical">
                   <Form.Item name="title" label="Title">
-                    <Input onChange={(e) => setTitle(e.target.value)} />
+                    <Input onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)} />
                   </Form.Item>
                   <Form.Item name="description" label="Description">
-                    <Input onChange={(e) => setDesc(e.target.value)} />
+                    <Input onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDesc(e.target.value)} />
                   </Form.Item>
                 </Form>
               </Card>
@@ -74,7 +81,7 @@ const index = () => {
                 >
                   <Form layout="vertical">
                     <Form.Item name="roomId" label="Room ID:">
-                      <Input onChange={(e) => setJoinRoomId(e.target.value)} />
+                      <Input onChange={(e: React.ChangeEvent<HTMLInputElement>) => setJoinRoomId(e.target.value)} />
                     </Form.Item>
                   </Form>
                 </Space>
@@ -90,4 +97,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

@@ -14,9 +14,9 @@ import { toast } from "react-toastify";
 import VideoJS from "../components/VideoJS";
 import useRoomEvents from "../hooks/useRoomEvents";
 import { useGetRoomDetail } from "../hooks/useGetRoomDetail";
-import Guest from "../components/Guest";
+import Guest from "../components/Guest"; // Assuming the correct relative path
 import { useMeetingMachineContext } from "../providers/MeetingMachineProvider";
-import Host from "../components/Host";
+import Host from "../components/Host"; // Assuming the correct relative path
 import { message } from "antd";
 
 const RoomId = () => {
